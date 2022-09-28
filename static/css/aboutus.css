@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+body{
+	font-family: 'Roboto', sans-serif;
+}
+ 
+/* contact style */
+.contact-form{
+	margin: 6em 0;
+	position: relative;		
+}
+.contact-form h1{
+	padding:2em 1px;
+	color: #FF589B; 
+}
+.contact-form .right{
+	max-width: 600px;
+}
+.contact-form .right .btn-secondary{
+	background:  #FF589B;
+	color: #fff;
+	border:0;
+}
+.contact-form .right .form-control::placeholder{
+	color: #888;
+	font-size: 16px;
+}
+
+.color-salmon{
+	color: #f85795;
+}

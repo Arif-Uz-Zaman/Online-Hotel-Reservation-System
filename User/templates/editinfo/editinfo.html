@@ -1,0 +1,228 @@
+{%load static%}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    
+    <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css' %}">
+
+    <link rel="stylesheet"  href="{% static 'css/registration.css' %}" >
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'img/core-img/favicon.ico' %}"/>
+  
+    <title>Edit Info</title>
+
+    <style>
+        .button1 {
+          background-color: transparent; 
+          color: black; 
+          border: 2px solid transparent;
+        }
+
+        .button1:hover {
+          background-color: black;
+          color: white;
+        }
+  </style>
+  </head>
+  <body style="min-height: 200px; background-image: url({% static 'img/bg-img/y.jpg' %}); background-size: cover;">
+    
+    <header class="continer-fluid " >
+    <div class="header-top" style="background-color: rgba(0,0,0,0.4); ">
+      <div class="container" >
+        <div class="row col-det" >
+          <div class="col-lg-6 d-none d-lg-block" style="background-color: rgba(0,0,0,0.4);">
+            <ul class="ulleft">
+              <li>
+              <button class="button button1">
+                <a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="home.html"><b> Home </b></a>
+              </button>
+                <span>|</span>
+              </li>
+              <li>
+              <button class="button button1">
+                <a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="home.html"><b> Contact us </b></a>
+              </button>
+                <span>|</span>
+              </li>
+              <li>
+              <button class="button button1">
+                <a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="home.html"><b> About us </b></a>
+              </button>
+                <span>|</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-12" style="background-color: rgba(0,0,0,0.4);">
+            <ul class="ulright">
+              <li>
+              <i class="fas fa-user"></i>
+              <button class="button button1">
+                <a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="profile.html"><b>Profile</b></a>
+              </button>
+              </li>
+              <li>
+              <i class="fas fa-user"></i>
+              <button class="button button1">
+                
+                <a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="{% url 'logout' %}"><b>Logout</b></a>
+              </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- head-part  -->
+
+  
+
+  </header>
+
+
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    {% comment %} <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% endcomment %}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div>
+    <h3 class=" contact_pdding"> <br> </h3>
+</div>
+
+<div class="container">
+            <form class="form-horizontal" role="form" action="/editinfo" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+                <h2>Update Your Info</h2>  
+                <div class="form-group">
+                    <div class="col-sm-12">
+                     {{forms.as_p}}
+                    </div>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <span class="help-block">*Plese fill up all fields</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <br>
+                <a class="btn btn-primary btn-block" style="color:white;" href="profile.html">Cancel</a>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+        
+     <!--*************** Footer  Starts Here *************** -->
+
+  <div>
+    <h3 class=" contact_pdding"> <br> </h3>
+    <h3 class=" contact_pdding"> <br> </h3>
+  </div>
+  <style>
+    /* .position {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    } */
+
+    .profile {
+      padding-left: 20px;
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .form_pd{
+      padding-left: 15px;
+    }
+    .contact_pdding{
+      padding-left: 35px;
+    }
+
+  </style>
+
+    <div class="row content-ro" style="background-color: black; color: seashell;">
+      <div class="col-lg-4 col-md-12 footer-contact ">
+        
+        <h2 class=" contact_pdding"> Contact Informatins</h2>
+        <div class="address-row">
+
+          <div class="detail contact_pdding">
+            <h6><b>Dhanmondi 12/A, Houseno:X3, Dhaka 1205</b></h6>
+          </div>
+        </div>
+        <div class="address-row">
+
+          <div class="detail contact_pdding">
+            <h6><b>ohrs@gmail.com</b></h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 footer-links" >
+        <div class="row no-margin mt-5">
+          
+          <ul style="color:white;">
+            <h3 class=" contact_pdding"> <br> </h3>
+            <h4 style="color:white;"><b>Copyright © OHRS | All right reserved.</b></h4>
+          </ul>
+        </div>
+
+
+
+      </div>
+      <div class="col-lg-4 col-md-12 footer-links">
+
+        <div class="row no-margin mt-4">
+          <h2 class="m-t-2">Social Links</h2>
+          <ul>
+            <a href="http://facebook.com/">
+              <li style="color:white;">Facebook</li>
+            </a>
+            <a href="https://www.youtube.com/">
+              <li style="color:white;">Youtube</li>
+            </a>
+            <a href="https://www.instagram.com/">
+              <li style="color:white;">Instagram</li>
+            </a>
+            <a href="https://twitter.com/">
+              <li style="color:white;">Twitter</li>
+            </a>
+
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  
+  
+  
+  </body>
+
+
+</html>

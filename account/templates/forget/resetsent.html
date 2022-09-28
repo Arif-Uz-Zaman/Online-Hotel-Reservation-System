@@ -1,0 +1,49 @@
+{%load static%}
+<html>
+<head>
+	<title>Forget Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet"  href="{% static 'css/style.css' %}" >
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+	<link rel="stylesheet"  href="{% static 'css/Login.css' %}" > 
+	<link rel="shortcut icon" type="image/jpg" href="{% static 'img/core-img/favicon.ico' %}"/>
+
+	<style>
+        .button1 {
+          background-color: rgba(0,0,0,0.4); 
+          color: black; 
+          border: 2px solid transparent;
+        }
+
+        .button1:hover {
+          background-color: black;
+          color: white;
+        }
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container" style="background-image: url({% static 'img/bg-img/bg-y.jpg' %}); "></div>
+			<div class="col-lg-6 col-md-6 form-container">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box">
+						<div class="mb-4">
+							<h4 class="mb-3">Link was send</h4>
+							<h6 class="text-white">Please check your inbox</h6>
+								<li>
+              						<button class="button button1">
+                						<a style="color:white;font-size: 16px; font-family: merriweather, serif ;" href="http://127.0.0.1:8000/login.html"><b> Back to log in </b></a>
+              						</button>
+                					
+              					</li>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

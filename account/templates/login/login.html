@@ -1,0 +1,80 @@
+{%load static%}
+<html>
+<head>
+	<title>Login </title>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet"  href="{% static 'css/style.css' %}" >
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+	<link rel="stylesheet"  href="{% static 'css/Login.css' %}" > 
+	<link rel="shortcut icon" type="image/jpg" href="{% static 'img/core-img/favicon.ico' %}"/>
+
+
+	
+</head>
+<body>
+	<div  class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container" style="background-image: url({% static 'img/bg-img/bg-2.jpg' %}); "></div>
+			
+			<div class="col-lg-6 col-md-6 form-container" style="background-color:black; ">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center"   style="background-color:black; ">
+					<div class="logo mb-3">
+						<img src="{% static 'img/core-img/logo.png' %}" width="150px">
+					</div>
+					{% for message in messages %}
+						<div class="alert alert-success">  {{ message }} </div>
+						{% endfor %}
+					<div class="heading mb-4">
+						<h4>Login into your account</h4>
+					</div>
+					<form class="form-horizontal" role="form" action="/login/" method="POST">
+						{% csrf_token %}
+						<div class="form-input">
+							<input type="text" class="form-control" name="username" placeholder="User Name" required>
+						</div>
+						<div class="form-input">
+						    
+							<input type="password" class="form-control" name='password' placeholder="Password" required>
+						</div>
+						<div class="row mb-3">
+							<div class="col-6 d-flex">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="cb1">
+									<label class="custom-control-label text-white" for="cb1">Remember me</label>
+								</div>
+							</div>
+							<div class="col-6 text-right">
+								<a href="{% url 'reset_password' %}" class="forget-link">Forget Password</a>
+							</div>
+						</div>
+						<div class="text-left mb-3">
+							<button type="submit" class="btn">Login</button>
+						</div>
+						
+						<div style="color: rgb(247, 243, 243)">Don't have an account?
+							<a href="http://127.0.0.1:8000/registration" class="register-link">Register here</a>
+						</div>
+					</form>
+					<div>	
+				</div>
+			</div>
+		</div>
+	</div>
+ <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+</html>

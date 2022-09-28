@@ -1,0 +1,390 @@
+{%load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> -->
+
+  <title>My Profile</title>
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'img/core-img/favicon.ico' %}" />
+
+  <style>
+        .button1 {
+          background-color: transparent; 
+          color: black; 
+          border: 2px solid transparent;
+        }
+
+        .button1:hover {
+          background-color: black;
+          color: white;
+        }
+  </style>
+
+</head>
+
+<body style="min-height: 200px; background-image: url({% static 'img/bg-img/y.jpg' %}); background-size: cover;background-position: center;  ">
+  <header class="continer-fluid ">
+    <div class="header-top" style="background-color: rgba(0,0,0,0.4); ">
+      <div class="container" >
+        <div class="row col-det" >
+          <div class="col-lg-6 d-none d-lg-block" style="background-color: rgba(0,0,0,0.4);">
+            <ul class="ulleft">
+              <li>
+              <button class="button button1">
+                {% if '@admin.com' in profile.Email %}
+                  <a style="color:white;" href="home2.html"><b> Home </b></a>
+                {% else %}
+                  <a style="color:white;" href="home.html"><b> Home </b></a>
+                {% endif %}
+              </button>
+                <span>|</span>
+              </li>
+              <li>
+              <button class="button button1">
+                <a style="color:white;" href="home.html"><b> Contact us </b></a>
+              </button>
+                <span>|</span>
+              </li>
+              <li>
+              <button class="button button1">
+                <a style="color:white;" href="home.html"><b> About us </b></a>
+              </button>
+                <span>|</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-12" style="background-color: rgba(0,0,0,0.4);">
+            <ul class="ulright">
+              <li>
+              <i class="fas fa-user"></i>
+              <button class="button button1">
+                <a style="color:white;" href="profile.html"><b>Profile</b></a>
+              </button>
+              </li>
+              <li>
+              <i class="fas fa-user"></i>
+              <button class="button button1">
+                
+                <a style="color:white;" href="{% url 'logout' %}"><b>Logout</b></a>
+              </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- head-part  -->
+
+  
+
+  </header>
+
+
+  <!-- Header -->
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+    <!-- Mask -->
+    <!-- <span class="mask bg-gradient-default opacity-8"></span> -->
+    <!-- Header container -->
+    <div class="container-fluid  align-items-center">
+      <div class="row">
+        <div class="col-lg-6 col-md-10 ">
+          <h1 class="display-2 text-white profile">Hello,    {{profile.Name}}</h1>
+          <a style="margin-left: 30px; background-color: rgba(0,0,0,0.4);"  href="editinfo.html" class="btn btn-info "> Edit profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7" style="background-color: rgba(0,0,0,0.4);">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+
+              <div class="card-profile-image">
+                <br>
+                <br>
+                <a href="#">
+          
+                
+                   {% if user.profile.profile_img %}
+                    <img src="{{profile.profile_img.url}}" class="rounded-Square">
+                    <br>
+                    <br>
+                    {% else %}
+                    <img src="{% static 'image/default.png' %}" width="240px">
+                    <br>
+                    <br>
+                    {% endif %}
+                 
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            <div class="d-flex justify-content-between">
+
+            </div>
+          </div>
+          <div class="card-body pt-0 pt-md-4">
+            <div class="row">
+              <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3>
+                {{profile.Name}}<span class="font-weight-light"></span>
+              </h3>
+              <div class="h5 font-weight-300">
+                <i class="ni location_pin mr-2"></i> {{profile.District}}, {{profile.Area}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My account</h3>
+              </div>
+              <!-- <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                </div> -->
+            </div>
+          </div>
+          <div class="card-body">
+            <form class="form_pd">
+              <h6 class="heading-small text-muted mb-4">User information</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-username">Full Name</label>
+                      <p type="text" style="color:black;" id="input-username" class="form-control form-control-alternative"
+                        placeholder="Username" >{{profile.Name}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Email address</label>
+                      <p type="email" id="input-email" style="color:black;" class="form-control form-control-alternative"
+                        placeholder="Email">{{profile.Email}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-first-name">Date Of Birth</label>
+                      <p type="text" id="input-first-name" style="color:black;" class="form-control form-control-alternative"
+                        placeholder="Date Of Birth" >{{profile.Date_of_Birth}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-last-name">Phone Number</label>
+                      <p type="text" id="input-last-name" style="color:black;" class="form-control form-control-alternative"
+                        placeholder="Phone Number" >{{profile.PhoneNumber}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-last-name">Gender</label>
+                      <p type="text" id="input-last-name" style="color:black;" class="form-control form-control-alternative"
+                        placeholder="Gender">{{profile.Gender}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-last-name">Blood Group</label>
+                      <p type="text" id="input-last-name" style="color:black;" class="form-control form-control-alternative"
+                        placeholder="Blood Group">{{profile.Blood_Group}}</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4">
+              <!-- Address -->
+              <h6 class="heading-small text-muted mb-4">Contact information</h6>
+              <!-- <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address">Address</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                      </div>
+                    </div>
+                  </div> -->
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group focused">
+                    <label class="form-control-label" for="input-city">Division</label>
+                    <p type="text" id="input-city" style="color:black;" class="form-control form-control-alternative"
+                      placeholder="Division" value="">{{profile.Division}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group focused">
+                    <label class="form-control-label" for="input-country">District</label>
+                    <p type="text" id="input-country" style="color:black;" class="form-control form-control-alternative"
+                      placeholder="District">{{profile.District}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group focused">
+                    <label class="form-control-label" for="input-country">Area</label>
+                    <p type="text" id="input-country" style="color:black;" class="form-control form-control-alternative"
+                      placeholder="Area">{{profile.Area}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country">Postal code</label>
+                    <P type="number" id="input-postal-code" style="color:black;" class="form-control form-control-alternative"
+                     >{{profile.Postal_Code}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <h6 class="heading-small text-muted mb-4">Payment method</h6>
+              <div class="col-lg-4">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-city">Visa/Master card</label>
+                  <input type="text" id="input-city" class="form-control form-control-alternative" value="0000"
+                    placeholder="Last Donation Date" value="">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-city">Mobile-Banking number</label>
+                  <img src="{% static 'img/core-img/Bkash.png' %}">
+                  <p type="text" id="input-city" style="color:black;" class="form-control form-control-alternative" placeholder="Any Disease"
+                    >{{profile.PhoneNumber}}</p>
+                </div>
+              </div>
+              
+          </div>
+          <!-- <hr class="my-4"> -->
+
+         </form>
+
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3><br></h3>
+      <br>
+
+    
+     <!--*************** Footer  Starts Here *************** -->
+  <style>
+    /* .position {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    } */
+
+    .profile {
+      padding-left: 20px;
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .form_pd{
+      padding-left: 15px;
+    }
+    .contact_pdding{
+      padding-left: 35px;
+    }
+
+  </style>
+
+    <div class="row content-ro" style="background-color: black; color: seashell;">
+      <div class="col-lg-4 col-md-12 footer-contact ">
+        <h3 class=" contact_pdding"> <br> </h3>
+        <h2 class=" contact_pdding"> Contact Informatins</h2>
+        <div class="address-row">
+
+          <div class="detail contact_pdding">
+            <p>Dhanmondi 12/A, Houseno:X3, Dhaka 1205</p>
+          </div>
+        </div>
+        <div class="address-row">
+
+          <div class="detail contact_pdding">
+            <p>ohrs@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 footer-links" >
+        <div class="row no-margin mt-5">
+          
+          <ul style="color:white;">
+            <h3 class=" contact_pdding"> <br> </h3>
+            <p style="color:white;">Copyright © OHRS | All right reserved.</p>
+          </ul>
+        </div>
+
+
+
+      </div>
+      <div class="col-lg-4 col-md-12 footer-links">
+
+        <div class="row no-margin mt-4">
+          <h2 class="m-t-2">Social Links</h2>
+          <ul>
+            <a href="http://facebook.com/">
+              <li style="color:white;">Facebook</li>
+            </a>
+            <a href="https://www.youtube.com/">
+              <li style="color:white;">Youtube</li>
+            </a>
+            <a href="https://www.instagram.com/">
+              <li style="color:white;">Instagram</li>
+            </a>
+            <a href="https://twitter.com/">
+              <li style="color:white;">Twitter</li>
+            </a>
+
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+ 
+
+
+</body>
+
+</html>

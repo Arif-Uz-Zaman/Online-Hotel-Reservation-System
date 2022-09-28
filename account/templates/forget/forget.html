@@ -1,0 +1,41 @@
+{%load static%}
+<html>
+<head>
+	<title>Forget Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet"  href="{% static 'css/style.css' %}" >
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+	<link rel="stylesheet"  href="{% static 'css/Login.css' %}" > 
+	<link rel="shortcut icon" type="image/jpg" href="{% static 'img/core-img/favicon.ico' %}"/>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container" style="background-image: url({% static 'img/bg-img/bg-2.jpg' %}); "></div>
+			<div class="col-lg-6 col-md-6 form-container" >
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box">
+					<div class=" reset-form d-block">
+						<form class="reset-password-form" method="POST">
+							{% csrf_token %}
+							<h4 class="mb-3">Reset your password</h4>
+							<p class="mb-3 text-white">Please enter your email address</p>
+							<div class="form-input">
+								<span><i class=""></i></span>
+								{{form}}
+							</div>
+							<div class="mb-3">
+								<div class="col-6 text-right">
+									<a href="{% url 'reset_password_done' %}"><button class="btn" type="submit">Send Reset link</button></a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
