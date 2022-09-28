@@ -1,3 +1,6 @@
-# OHRS_Django---V2
+#Online Hotel Reservation system
 
-Online Hotel Reservation system
+
+OHRS_Django---V2
+
+
