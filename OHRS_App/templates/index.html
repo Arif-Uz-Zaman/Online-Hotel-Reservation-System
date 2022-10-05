@@ -39,6 +39,14 @@
         <!-- Navbar Area -->
         <div class="palatin-main-menu">
             <div class="classy-nav-container breakpoint-off">
+            <div>
+            {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+                <a class="close" href="#" data-dismiss="alert">×</a>
+            </div>
+            {% endfor %}
+            </div>
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="palatinNav">
@@ -422,7 +430,8 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-widget-area mt-50">
                         <h6 class="widget-title mb-5">Subscribe to get discount notification</h6>
-                        <form action="#" method="post" class="subscribe-form">
+                        <form action="" method="post" class="subscribe-form">
+                            {% csrf_token %}
                             <input type="email" name="subscribe-email" id="subscribeemail" placeholder="Your E-mail">
                             <button type="submit">Subscribe</button>
                         </form>

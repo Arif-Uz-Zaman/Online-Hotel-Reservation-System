@@ -1,7 +1,7 @@
 {%load static%}
 <html>
 <head>
-	<title>Forget Form</title>
+	<title>Reset password</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet"  href="{% static 'css/style.css' %}" >
@@ -23,12 +23,11 @@
 							<h4 class="mb-3">Reset your password</h4>
 							<p class="mb-3 text-white">Please enter your email address</p>
 							<div class="form-input">
-								<span><i class=""></i></span>
 								{{form}}
 							</div>
 							<div class="mb-3">
 								<div class="col-6 text-right">
-									<a href="{% url 'reset_password_done' %}"><button class="btn" type="submit">Send Reset link</button></a>
+									<button class="btn" type="submit">Send Reset link</button>
 								</div>
 							</div>
 						</form>

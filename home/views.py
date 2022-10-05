@@ -2,7 +2,9 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.decorators import login_required
 from hotel.models import (Amenities, Hotel)
 from django.db.models import Q
-
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -30,6 +32,16 @@ def home(request):
         hotels_objs = hotels_objs.filter(amenities__amenity_name__in = amenities).distinct()
         context = {'amenities_objs' : amenities_objs , 'hotels_objs' : hotels_objs 
         , 'search' : search , 'amenities' : amenities}
+
+    if request.method == 'POST':
+        msg = request.POST.get('subscribe-email')
+        
+        subject = 'welcome to OHRS'
+        message = f'Hi there, thank you for subscribing OHRS. Now you will get all the discount notification. '
+        e_from = settings.EMAIL_HOST_USER
+        email =[msg,]
+        send_mail(subject,message,e_from,email)
+        messages.success(request,'Subscribed Successfully. Please check your email.')
         
 
     context = {'amenities_objs' : amenities_objs , 'hotels_objs' : hotels_objs 
@@ -58,6 +70,16 @@ def home2(request):
         hotels_objs = hotels_objs.filter(amenities__amenity_name__in = amenities).distinct()
         context = {'amenities_objs' : amenities_objs , 'hotels_objs' : hotels_objs 
         , 'search' : search , 'amenities' : amenities}
+
+    if request.method == 'POST':
+        msg = request.POST.get('subscribe-email')
+        
+        subject = 'welcome to OHRS'
+        message = f'Hi there, thank you for subscribing OHRS. Now, you will receive all the discount notification through email. '
+        e_from = settings.EMAIL_HOST_USER
+        email =[msg,]
+        send_mail(subject,message,e_from,email)
+        messages.success(request,'Subscribed Successfully. Please check your email.')
         
 
     context = {'amenities_objs' : amenities_objs , 'hotels_objs' : hotels_objs 
